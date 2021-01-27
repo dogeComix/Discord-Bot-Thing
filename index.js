@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 Game = require ('./game.js')
 Help = require ('./helpembed.js')
+Shop = require ('./shopembed.js')
+Dice = require ('./buydice.js')
+Buy = require ('./buy.js')
 const client = new Discord.Client();
 
 const prefix = '$'
@@ -54,8 +57,36 @@ client.on('message', message => {
 		case 'help':
 			message.channel.send(Help.helpEmbed())
 			break;
+		case 'shop':
+			message.channel.send(Shop.shopembed())
+			break;
+		case 'buy':
+			const args2 = message.content.slice(prefix.length + 3).trim().split(/ +/);
+			const command2 = args2.shift().toLowerCase();
+
+			switch (command2){
+				case 'dice':
+					message.channel.send(Buy.buyembed())
+				//message.channel.send('dice')
+					break;
+				case 'jellyfish':
+					message.channel.send('seriously?? i said dont')
+					break;
+				default:
+					message.channel.send('You cant buy that :flushed:')
+			}
+			break;
+
+		//scores[message.author.id] = scores[message.author.id] - 10;
+			//console.log(scores);
+			//bought = Dice.buydice(message.author.username, scores[message.author.id])
+			//message.channel.send(bought)
+			//break;
+		case 'score':
+			message.channel.send(scores[message.author.id])
+			break;
 		default:
-			message.channel.send('Sorry, that is not something I know how to do.');
+			message.channel.send('Thats not a valid command :flushed:');
 	//NewMessage = 'you said "' + message.content.substr(1,message.content.length) + '"'
 	//message.channel.send(NewMessage)
 	}

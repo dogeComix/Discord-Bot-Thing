@@ -13,6 +13,7 @@ const Discord = require('discord.js');
             { name: '$guess', value: 'guess a number and i will roll the dice. eg $guess 4' },
             { name: '$insult', value: 'insult people. eg $insult nathan', },
             { name: '$say', value: 'say something from the bot. eg $say hi im a bot!', },
+            { name: '$score', value: 'displays your current score. eg $score', },
             { name: '$wave', value: 'wave at everyone. eg $wave', },
             { name: '$help', value: 'just shows this page again.', },
         )
