@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 Game = require ('./game.js')
 Help = require ('./helpembed.js')
 Shop = require ('./shopembed.js')
-Dice = require ('./buydice.js')
 Buy = require ('./buy.js')
 const client = new Discord.Client();
 
@@ -66,7 +65,8 @@ client.on('message', message => {
 
 			switch (command2){
 				case 'dice':
-					message.channel.send(Buy.buyembed())
+					scores[message.author.id] = scores[message.author.id] - 10
+					message.channel.send(Buy.buyembed(message.author.username, scores[message.author.id], message.content.slice(prefix.length + 3).trim().split(/ +/)))
 				//message.channel.send('dice')
 					break;
 				case 'jellyfish':
