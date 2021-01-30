@@ -11,6 +11,7 @@ const Discord = require('discord.js');
         .setThumbnail('https://gilkalai.files.wordpress.com/2017/09/dice.png')
         .addFields(
             { name: '$guess', value: 'guess a number and i will roll the dice. eg $guess 4' },
+            { name: '$shop', value: 'displays the shop page. eg $shop' },
             { name: '$insult', value: 'insult people. eg $insult nathan', },
             { name: '$say', value: 'say something from the bot. eg $say hi im a bot!', },
             { name: '$score', value: 'displays your current score. eg $score', },

@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const bluetooth = require('node-bluetooth');s
 Game = require ('./game.js')
 Help = require ('./helpembed.js')
 Shop = require ('./shopembed.js')
@@ -18,7 +19,7 @@ var insults = [' smells quite badly', ' is lame', ' is annoying']
 
 var NewMessage = ''
 
-var scores = { '529003883830312963': 10002, '396360255576997893': 2 }
+var scores = { '529003883830312963': 10002, '396360255576997893': 2, '273480178632491008': 4 }
 
 
 client.on('message', message => {
@@ -67,6 +68,7 @@ client.on('message', message => {
 				case 'dice':
 					scores[message.author.id] = scores[message.author.id] - 10
 					message.channel.send(Buy.buyembed(message.author.username, scores[message.author.id], message.content.slice(prefix.length + 3).trim().split(/ +/)))
+					console.log(scores)
 				//message.channel.send('dice')
 					break;
 				case 'jellyfish':
